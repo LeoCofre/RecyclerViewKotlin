@@ -51,6 +51,7 @@
                 android:background="#FA2A2A"
                 android:gravity="center"
                 android:text="TextView"
+                android:textColor="#EDF1EEEE"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

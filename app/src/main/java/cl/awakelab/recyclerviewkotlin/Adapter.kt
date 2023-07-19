@@ -1,19 +1,17 @@
 package cl.awakelab.recyclerviewkotlin
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import cl.awakelab.recyclerviewkotlin.databinding.ItemBinding
 
-/*  [x] Heradar de RecyclerView.Adapter
-    [ ] Implementar metodos onCreateViewHolder, onBindViewHolder, getItemCount
+/*  [x] Heredar de RecyclerView.Adapter
+    [x] Implementar metodos onCreateViewHolder, onBindViewHolder, getItemCount
     [x] Crear clase ViewHolder que Hereda de RecyclerView.ViewHolder
-    [ ] Crear constructor
-    [ ] Crear data class
-    [ ] Asignar tamaño de lista a getItemCount
-
-    [ ] Crear Lista
+    [x] Crear constructor
+    [x] Crear data class
+    [x] Asignar tamaño de lista a getItemCount
+    [x] Crear Lista
 */
 class Adapter : RecyclerView.Adapter<Adapter.ViewHolder>(){
 
@@ -28,14 +26,24 @@ class Adapter : RecyclerView.Adapter<Adapter.ViewHolder>(){
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val item = pokemones[position]
+        holder.bind(item)
     }
 
     override fun getItemCount(): Int {
         return pokemones.size
     }
 
-    class ViewHolder(binding : ItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    fun setData(pokedex: List<Pokemon>) {
+        this.pokemones = pokedex.toMutableList()
 
+    }
+
+    class ViewHolder(val binding : ItemBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(pokemon: Pokemon) {
+
+            binding.tvTipo.text = pokemon.tipo
+            binding.tvNombre.text = pokemon.nombre
+        }
     }
 }

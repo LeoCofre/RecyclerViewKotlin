@@ -1,4 +1,4 @@
-package com.example.kotlinexamples
+package cl.awakelab.recyclerviewkotlin
 
 import cl.awakelab.recyclerviewkotlin.Pokemon
 
